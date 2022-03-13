@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-off-white;
+    @apply h-full bg-off-white;
   }
 
   input[type="search"]::-webkit-search-decoration,
