@@ -7,10 +7,12 @@ import {
 import { useModalContext } from "../../contexts/ModalContextProvider";
 import { Modal } from "./Modal";
 import FreighterLogo from "../../assets/freighter_logo.png";
+import { useAuthenticationContext } from "../../contexts/AuthenticationContextProvider";
 
 export const WalletModal = () => {
   const errorMsg = useRef(null);
   const { closeModal } = useModalContext();
+  const { connectWallet } = useAuthenticationContext();
 
   const retrievePublicKey = async () => {
     let publicKey;
@@ -24,10 +26,13 @@ export const WalletModal = () => {
 
       publicKey = await getPublicKey();
 
+      sessionStorage.setItem("public_key", publicKey);
+
       if (publicKey === "") {
         throw new Error("No public key");
       }
 
+      connectWallet();
       closeModal();
     } catch (error) {
       errorMsg.current.classList.remove("hidden");
@@ -52,7 +57,7 @@ export const WalletModal = () => {
   return (
     <Modal>
       <div className="flex items-center justify-between rounded-t border-b py-4 px-6 dark:border-gray-600">
-        <h3 className="text-base font-semibold text-gray-900 dark:text-white lg:text-xl">
+        <h3 className=" text-xl font-semibold text-gray-900 dark:text-white">
           Connect wallet to account
         </h3>
       </div>
