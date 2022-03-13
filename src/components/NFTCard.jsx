@@ -9,7 +9,7 @@ export const NFTCard = ({ image, title, desc, price }) => {
     >
       <div className="w-full overflow-hidden rounded-lg">
         <img
-          className="h-full w-full object-cover transition duration-300 group-hover:scale-110"
+          className="h-full w-full object-cover transition duration-300 group-hover:relative group-hover:z-0 group-hover:scale-110"
           src={`${
             !image
               ? "https://lh3.googleusercontent.com/gA4IAtO3zj2xuZDJaRKltyDMZFAbmk7WuNYL1M2OTT404ds9O_qi1IS6hnRq9bZUtjgByZsNAW25WlpdI95me15s6-LV6rsyhfb5OZw=w1400-k"
@@ -33,7 +33,7 @@ export const NFTCard = ({ image, title, desc, price }) => {
           </div>
 
           <div className="flex flex-row items-end justify-between">
-            <div className="flex flex-row items-center gap-2">
+            <div className="flex flex-row items-center gap-2 transition ease-in-out group-hover:-translate-x-1">
               <Token />
               <div className="font-mont text-2xl font-bold text-purple-600">
                 {!price ? "15.21" : { price }}
@@ -41,7 +41,20 @@ export const NFTCard = ({ image, title, desc, price }) => {
             </div>
 
             <a className="font-medium text-purple-600 hover:underline" href="/">
-              More Info
+              <svg
+                className="h-6 w-6 transition ease-in-out group-hover:translate-x-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                ></path>
+              </svg>
             </a>
           </div>
         </div>
