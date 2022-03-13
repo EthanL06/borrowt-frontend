@@ -1,11 +1,16 @@
+import { Routes, Route } from "react-router-dom";
+
 import { Navbar } from "./components/Navbar";
 import { Browse } from "./pages/Browse";
+
 function App() {
   return (
-    <div>
+    <>
       <Navbar />
-      <Browse />
-    </div>
+      <Routes>
+        <Route path="/" element={<Browse />} />
+      </Routes>
+    </>
   );
 }
 
