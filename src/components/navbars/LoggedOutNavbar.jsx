@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import { Button } from "./Button";
-import { useModalContext } from "../contexts/ModalContextProvider";
+import { Button } from "../Button";
+import { useModalContext } from "../../contexts/ModalContextProvider";
 
 export const LoggedOutNavbar = ({ show }) => {
   const { openModal } = useModalContext();

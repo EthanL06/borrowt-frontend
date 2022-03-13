@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import { ModalContextProvider } from "./contexts/ModalContextProvider";
 import { AuthenticationContextProvider } from "./contexts/AuthenticationContextProvider";
 
-import { Navbar } from "./components/Navbar";
+import { Navbar } from "./components/navbars/Navbar";
 import { Browse } from "./pages/Browse";
 
 function App() {
