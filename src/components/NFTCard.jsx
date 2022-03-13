@@ -1,5 +1,6 @@
 import React from "react";
 import { ReactComponent as Token } from "../assets/token.svg";
+import { Button } from "./Button";
 
 export const NFTCard = ({ image, title, desc, price }) => {
   const truncateText = (text) => {
@@ -14,7 +15,7 @@ export const NFTCard = ({ image, title, desc, price }) => {
   return (
     <a
       href="/"
-      className="group flex w-full flex-col items-center justify-around gap-4 overflow-hidden rounded border-2 bg-white py-5 px-7 transition duration-200 ease-linear hover:cursor-pointer hover:shadow-lg sm:h-96 sm:w-72"
+      className="group flex w-full flex-col items-center justify-around gap-4 overflow-hidden rounded border-2 bg-white py-5 px-6 transition duration-200 ease-linear hover:cursor-pointer hover:shadow-lg sm:h-96 sm:w-72"
     >
       <div className="w-full overflow-hidden rounded-lg">
         <img
@@ -31,7 +32,7 @@ export const NFTCard = ({ image, title, desc, price }) => {
       <div className="w-full text-left font-montserrat">
         <div className="flex flex-col gap-4">
           <div>
-            <div className="text-2xl font-bold hover:underline">
+            <div className="text-2xl font-bold">
               {!title ? "Lorem ipsum" : { title }}
             </div>
             <div className="text-sm font-medium text-gray-500">
@@ -42,29 +43,22 @@ export const NFTCard = ({ image, title, desc, price }) => {
           </div>
 
           <div className="flex flex-row items-end justify-between">
-            <div className="flex flex-row items-center gap-2 transition ease-in-out group-hover:-translate-x-1">
-              <Token />
-              <div className="font-mont text-2xl font-bold text-purple-600">
-                {!price ? "15.21" : { price }}
+            <div className="flex flex-col transition ease-in-out group-hover:-translate-x-1">
+              <div className="flex flex-row items-center gap-2">
+                <Token />
+                <div className="font-mont text-2xl font-bold text-purple-600">
+                  {!price ? "99000" : { price }}
+                </div>
+              </div>
+              <div className="text-xs text-gray-500">90000 XLM base</div>
+              <div className="text-xs text-gray-500">
+                +10% royalty (90000 XLM)
               </div>
             </div>
 
-            <a className="font-medium text-purple-600 hover:underline" href="/">
-              <svg
-                className="h-6 w-6 transition ease-in-out group-hover:translate-x-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                ></path>
-              </svg>
-            </a>
+            <div className="transition ease-in-out group-hover:translate-x-1">
+              <Button text={"Buy"} color={"#9333ea"} />
+            </div>
           </div>
         </div>
       </div>

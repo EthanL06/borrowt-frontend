@@ -1,34 +1,9 @@
-import React, { useEffect } from "react";
-
-import { useAuthenticationContext } from "../contexts/AuthenticationContextProvider";
-import { useModalContext } from "../contexts/ModalContextProvider";
-
+import React from "react";
 import { NFTCard } from "../components/NFTCard";
-import { SignInModal } from "../components/modals/SignInModal";
-import { RegisterModal } from "../components/modals/RegisterModal";
-import { WalletModal } from "../components/modals/WalletModal";
 
 export const Browse = () => {
-  const { isModalOpen, modalType } = useModalContext();
-  const { isLoggedIn } = useAuthenticationContext();
-
-  const renderModal = () => {
-    switch (modalType) {
-      case "signin":
-        return <SignInModal />;
-      case "register":
-        return <RegisterModal />;
-      case "wallet":
-        return <WalletModal />;
-      default:
-        return null;
-    }
-  };
-
   return (
     <div>
-      {isModalOpen ? renderModal() : null}
-
       <div className="mx-5 flex select-none flex-col items-center justify-center lg:ml-12">
         <div className="mt-10 mb-5 flex w-full text-left text-5xl font-bold ">
           Browse&nbsp;

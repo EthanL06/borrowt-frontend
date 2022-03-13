@@ -30,7 +30,12 @@ export const LoggedInNavbar = (showNavbar) => {
       id="mobile-menu"
     >
       <ul className="mt-4 flex flex-col items-center gap-5 md:mt-0 md:flex-row md:space-x-8 md:text-sm md:font-medium">
-        <li>
+        <li
+          onClick={() => {
+            setModalType("mint");
+            openModal();
+          }}
+        >
           <Button text={"Sell NFT"} color={"#22C55E"} />
         </li>
         <li>
