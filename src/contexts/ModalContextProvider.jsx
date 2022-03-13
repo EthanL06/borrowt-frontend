@@ -4,9 +4,9 @@ const ModalContext = createContext();
 
 export const ModalContextProvider = ({ children }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalType, setModalType] = useState("signin");
 
   const openModal = () => {
-    console.log("openModal");
     setIsModalOpen(true);
   };
 
@@ -20,6 +20,8 @@ export const ModalContextProvider = ({ children }) => {
         isModalOpen,
         openModal,
         closeModal,
+        modalType,
+        setModalType,
       }}
     >
       {children}
