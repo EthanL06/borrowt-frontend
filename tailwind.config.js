@@ -11,7 +11,7 @@ module.exports = {
       fontFamily: {
         'sans': 'Raleway, sans-serif',
         'montserrat': 'Montserrat, sans-serif',
-      },
+      }
     },
     plugins: [],
   }
