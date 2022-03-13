@@ -1,14 +1,16 @@
 import React, { useEffect } from "react";
 import { Button } from "./Button";
-import { SignInModal } from "./SignInModal";
+import { useModalContext } from "../contexts/ModalContextProvider";
+
 export const LoggedOutNavbar = ({ show }) => {
+  const { openModal } = useModalContext();
   useEffect(() => {
     const signin = document.querySelector("#sign-in");
     signin.classList.toggle("hidden");
   }, [show]);
 
   const handleButtonClick = () => {
-    console.log("click");
+    openModal();
   };
 
   return (
