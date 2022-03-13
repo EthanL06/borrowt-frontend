@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useAuthenticationContext } from "../contexts/AuthenticationContextProvider";
 import { Button } from "./Button";
 import { Profile } from "./Profile";
 
@@ -9,6 +10,7 @@ export const LoggedInNavbar = (showNavbar) => {
   const profileMenu = useRef(null);
   const mobileMenu = useRef(null);
   const [isProfileOpen, setProfileOpen] = useState(false);
+  const { logout } = useAuthenticationContext();
 
   useEffect(() => {
     mobileMenu.current.classList.toggle("hidden");
@@ -70,12 +72,12 @@ export const LoggedInNavbar = (showNavbar) => {
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="/"
+                  <div
+                    onClick={logout}
                     className="block border-t-[1px] border-gray-200 py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
                   >
                     Sign out
-                  </a>
+                  </div>
                 </li>
               </ul>
             </div>

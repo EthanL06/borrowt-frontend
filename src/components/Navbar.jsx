@@ -1,13 +1,14 @@
 import React, { useRef, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { useAuthenticationContext } from "../contexts/AuthenticationContextProvider";
 import { LoggedInNavbar } from "./LoggedInNavbar";
 import { Search } from "./Search";
-import { Link, useLocation } from "react-router-dom";
 import { LoggedOutNavbar } from "./LoggedOutNavbar";
 
 export const Navbar = () => {
   const navbar = useRef(null);
   const location = useLocation();
-  const [isLoggedIn, setLoggedIn] = useState(false); // TODO: get from localStorage
+  const { isLoggedIn } = useAuthenticationContext();
   const [showMenu, setShowMenu] = useState(true);
 
   const toggleNavbar = () => {
