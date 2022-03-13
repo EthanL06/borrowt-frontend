@@ -2,6 +2,15 @@ import React from "react";
 import { ReactComponent as Token } from "../assets/token.svg";
 
 export const NFTCard = ({ image, title, desc, price }) => {
+  const truncateText = (text) => {
+    if (text.length > 100) {
+      return text.substring(0, 100) + "...";
+    }
+    return text;
+  };
+
+  const description = truncateText("" + JSON.stringify(desc));
+
   return (
     <a
       href="/"
@@ -28,7 +37,7 @@ export const NFTCard = ({ image, title, desc, price }) => {
             <div className="text-sm font-medium text-gray-500">
               {!desc
                 ? "Lorem ipsum dolor sit amet, consectetuer adipiscing elit..."
-                : { desc }}
+                : { description }}
             </div>
           </div>
 
